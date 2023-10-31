@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= blogPost.title %></title>
+  <link rel="stylesheet" type="text/css" href="/public/styles.css">
+</head>
+<body>
+  <h1><%= blogPost.title %></h1>
+  <div id="post-content"><%= blogPost.content.substr(0, 100) %></div>
+  <div id="full-content" style="display: none;"><%= blogPost.content %></div>
+  <button id="read-more">Читать далее</button>
+  <a href="/">Назад к списку</a>
+  
+  <script>
+    const readMoreButton = document.getElementById('read-more');
+    const postContent = document.getElementById('post-content');
+    const fullContent = document.getElementById('full-content');
+
+    let isFullContentVisible = false;
+
+    readMoreButton.addEventListener('click', () => {
+      if (!isFullContentVisible) {
+        postContent.style.display = 'none';
+        fullContent.style.display = 'block';
+        readMoreButton.textContent = 'Свернуть';
+        isFullContentVisible = true;
+      } else {
+        postContent.style.display = 'block';
+        fullContent.style.display = 'none';
+        readMoreButton.textContent = 'Читать далее';
+        isFullContentVisible = false;
+      }
+    });
+  </script>
+</body>
+</html>

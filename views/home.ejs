@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Блог</title>
+  <link rel="stylesheet" type="text/css" href="/public/styles.css">
+</head>
+<body>
+  <h1>Список блог-постов</h1>
+  <ul>
+    <% blogPosts.forEach(post => { %>
+      <li>
+        <a href="/blog/<%= post.id %>"><%= post.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/add-blog">Добавить новый пост</a>
+</body>
+</html>
